@@ -1,0 +1,97 @@
+
+
+<div ng-controller="FriendController as m">
+	<h2>Welcome to Friend Management..</h2>
+	{{message}}
+
+	
+		<h2 style="color: black;" align="left">
+			<u> My Friends </u>
+		</h2>
+	
+	<div class="friend" align="left">
+		<div class="container">
+			<div class="blog-all-grids">
+
+				<div>
+					<div class="col-md-4 blogs-grid" ng-repeat="friend in m.friends">
+
+						<div class="blog-all">
+							<div class="blog-all-sub frame">
+								<br>
+								<h3 ng-show='currentUser.userId!=friend.userId'> Friend with: {{friend.userId}}</h3> 
+								<h3 ng-show='currentUser.userId==friend.userId'> Friend with:  {{friend.friendId}}</h3>
+
+								<h6>Is Online : {{friend.isOnline}}</h6>
+
+
+
+							</div>
+						</div>
+
+
+						<input type="button" class="btn btn-info btn-more"
+							ng-click="m.unFriend(friend, friend.friendId)"
+							value="Unfriend">
+							
+						 <input type="button" class="btn btn-success btn-more"
+							ng-click="m.getSelectedFriend(friend.friendId)"
+							value="Show profile">
+					
+      
+						 
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</div>
+</div>
+
+
+	<h2 style="color: black;" align="right">
+		<u> New Friend Requests </u>
+	</h2>
+
+<div class="friends" align="right">
+	<div class="container">
+		<div class="friend-all-grids">
+
+
+			<div>
+
+				<div class="col-md-4 blogs-grid" ng-repeat="friend in newFriendRequests">
+				<div	>
+
+
+					<div class="friend-all">
+						<div class="friend-all-sub frame">
+							<br>
+							<h3> Request Sent By :-  {{friend.userId}}</h3> 
+							
+							
+
+
+
+						</div>
+					</div>
+					<input type="button" class="btn btn-info btn-more"
+						ng-click="m.acceptFriend(friend, friend.userId)"
+						value="acceptFriend">
+						</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+

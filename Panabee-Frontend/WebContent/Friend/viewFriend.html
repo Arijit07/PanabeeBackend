@@ -1,0 +1,155 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+body{ 
+    background-color: #EEF394
+;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media (min-width: 1200px){
+.container {
+    width: 1170px;
+}
+
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+.friend-grids {
+    overflow: hidden;
+    margin: 0 -15px;
+}
+
+.friend-grids .grid {
+    background-color: transparent;
+    width: calc(33.33% - 30px);
+    float: left;
+    padding: 50px;
+    margin: 50px 15px 15px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.entry-media img {
+    border-radius: 10px;
+    width: 100%;
+    max-height: 188px;
+}
+
+.entry-body {
+    padding: 27px 10px;
+}
+
+.entry-body .cat {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6220d9;
+    text-transform: uppercase;
+}
+
+.entry-body h3 {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.30em;
+    margin: 3px 0 0.73em;
+}
+
+.entry-body h3 a {
+    color: #41516a;
+}
+
+.entry-body h3 a:hover {
+    color: #6220d9;
+    text-decoration: none;
+}
+
+.entry-body p {
+    margin-bottom: 2em;
+    color: #90949a;
+    line-height: 1.8em;
+}
+
+.read-more-date {
+    position: relative;
+}
+
+.read-more-date a {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-size: 1.06667rem;
+    font-weight: 600;
+    color: #41516a;
+    text-transform: uppercase;
+}
+
+.read-more-date .date {
+    position: absolute;
+    right: 0;
+    color: #90949a;
+}
+
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" ng-repeat="Friend in m.friends" >
+	
+	<div ng-hide="Friend.friendId == currentUser.userId" >
+		<div class="col col-xs-12">
+                        <div class="friend-grids">
+                            <div class="grid">
+                     
+                      <span  >       <h2><a href="" ng-click="m.getSelectedFriend(Friend.friendId)">{{Friend.friendId}}</a></h2> </span>
+                              
+                     
+                           
+       
+      
+    
+                           
+                           </div> 
+                        </div>
+                    </div>
+	</div>
+	<div ng-show="Friend.friendId == currentUser.userId ">
+		<div class="col col-xs-12">
+                        <div class="friend-grids">
+                            <div class="grid">
+                     
+                      <span  >       <h2><a href="" ng-click="m.getSelectedFriend(Friend.friendId)">{{Friend.userId}}</a></h2> </span>
+                              
+                     
+                           
+       
+      
+    
+                           
+                           </div> 
+                        </div>
+                    </div>
+	</div>
+</div>
+
+
+</script>
+

@@ -1,0 +1,165 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.register {
+  font-family: Arial,Bold, Helvetica, sans-serif;
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 24px;
+  background-color: aqua;
+  color: black;
+  position: center;
+  
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  color: black;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  
+}
+
+select{
+width: 50%;
+display: inline-block;
+}
+
+
+
+
+
+textarea{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus, input[type=tel]:focus {
+  background-color: #ddd;
+  outline: none;
+  
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  position: center;
+  display: inline-block;
+  width: 30%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.containersignin {
+  padding: 16px;
+  color: black;
+  position: center;
+  text-align: center;
+  
+}
+.Registe {
+	position: center;
+  text-align: center;
+  display: inline-block;
+}
+</style>
+
+<div class="register">
+
+<form>
+  <div class="container">
+    <h1 align="center">Register</h1>
+    <p align="center">Please fill in this form to create an account.</p>
+    <hr>
+    <div>
+    <label for="name"><b></b></label>
+    <input type="text" placeholder="Enter  Full Name" ng-model="user.userName" required>
+     </div>
+	 <div>
+    <label for="userId"><b></b></label>
+    <input type="text" placeholder="Enter User ID" ng-model="user.userId" required>
+</div>
+	 <div>
+    <label for="psw"><b></b></label>
+    <input type="password" placeholder="Enter Password" ng-model="user.userPassword" required>
+</div>
+	 <div>
+    <br><label for="dob"><b>DOB</b></label>
+    <input type="date" placeholder="Enter DOB(DD/MM/YYYY)" ng-model="user.userDob"  required>
+    &nbsp;&nbsp;
+    <label for="gender"><b>Gender</b></label>
+    <select ng-model="user.userGender"  required>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+     </select>
+	 &nbsp;&nbsp;
+	 <label for="contactNo"><b>Contact No</b></label>
+    <input type="tel" placeholder="Enter Contact No" ng-model="user.userContactNumber" required>
+    </div>
+	 <div>
+    <br><br><label for="email"><b></b></label>
+    <input type="text" placeholder="Enter Email" ng-model="user.userEmail" required>
+    </div>
+	 <div>
+     <label for="description"><b></b></label>
+    <textarea placeholder="Enter Description" ng-model="user.userDescription" required ></textarea>
+    </div>
+	 <div>
+     <br><label for="address"><b></b></label>
+    <textarea placeholder="Enter Address" ng-model="user.userAddress" id="address" required ></textarea>
+    </div>
+	
+    <hr>
+	<div class="Registe">
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <button ng-click="m.createUser(user)" class="registerbtn">Register</button>
+  </div>
+  </div>
+  
+  <div class="containersignin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</form>
+
+</div>

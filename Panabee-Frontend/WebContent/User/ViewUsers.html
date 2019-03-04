@@ -1,0 +1,34 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table, th, td {
+  border: 1px solid black;
+  background-color: grey;
+  position: center;
+  padding: 4px;
+  color: white
+}
+th, td {
+  padding: 10px;
+}
+
+
+</style>
+
+
+<div>
+<table align="center">
+<caption>All Users Information</caption>
+
+<tr><th>User ID</th><th>Name</th><th>Online/Offline</th><th>status</th></tr> 
+<tr ng-repeat="User in m.users">
+<td>{{User.userId}}</td>
+<td>{{User.userName}}</td>
+<td>{{User.status}}</td>
+<td>{{User.isOnline}}</td>
+<td><button ng-click="m.getSelectedUser(User.userId)">Show User details</button></td>
+<td></td>
+<td><button class="btn btn-success"  ng-click="m.sendFriendRequest(User.userId)">send req</button></td>
+
+</tr>
+</table>
+</div>

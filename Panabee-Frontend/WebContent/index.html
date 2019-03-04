@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<!--
+	PANABEE by Arijit
+	
+-->
+<html>
+	<head>
+		<title>PANABEE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		</head>
+	<body>
+
+		<div ng-app="myApp">
+		<div ng-controller="UserController as m">
+		
+		<!-- Header -->
+			<header id="header" class="alt">
+			
+				<div class="logo"><a href="index.html">PANABEE <span>by Arijit</span></a></div>
+				
+				<a href="#/login" ng-hide="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'" >Login</a>
+				
+				<a href="#" ng-click="m.logout(currentUser,currentUser.userId)" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'">Logout</a>
+				
+				<a href="#/RegisterUsers" ng-hide="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'" >Sign-up</a>
+				
+				<a href="#/chat" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'">Chat</a>
+				
+				
+					
+				<a href="#menu" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'">Menu</a>
+				
+				
+			</header>
+
+		<!-- Nav -->
+				
+					
+					
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					
+					<li><div class="dropdown" ng-if="notificationCount>0" >Notification :{{notificationCount}}
+					<div class="dropdown-content" >
+					<div ng-repeat="notification in notifications">
+					<ul><a href="#/getnotification/{{notification.notificationId}}">Update on Blog titled "<b>{{notification.blogTitle}} "</b></a></ul>
+					</div>
+					</div>
+					</div>
+					</li>
+					
+					<li><div class="dropdown">Blog
+					<div class="dropdown-content">
+					<a href="#/ViewApprovedBlogs" ng-show="currentUser.userRole != 'ADMIN'"> Review Blog</a>
+					<a href="#/ViewBlogs" ng-show="currentUser.userRole == 'ADMIN'" >Approval Blog List</a>
+					<a href="#/AddBlogs" ng-show="currentUser.userRole == 'USER'">Post New Blog</a>
+					</div>
+					</div>
+					</li>
+					
+					
+					
+					
+					<li><div class="dropdown">Forum
+					<div class="dropdown-content">
+					<a href="#/ViewApprovedForum" ng-show="currentUser.userRole != 'ADMIN'"> Review Forum</a>
+					<a href="#/ViewForums" ng-show="currentUser.userRole == 'ADMIN'" >Approval Forum List</a>
+					<a href="#/AddForum" ng-show="currentUser.userRole == 'USER'">Post New Forum</a>
+					</div>
+					</div>
+					</li>
+					
+					
+					
+					<li><div class="dropdown">Job Search
+					<div class="dropdown-content">
+					<a href="#/PostJob" ng-show="currentUser.userRole == 'ADMIN'" >Post a new Job</a>
+					<a href="#/list_jobs">View Job List</a>
+					<a href="#"   ng-click="m.getMyAppliedJobs()"  ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'">{{currentUser.userName}}'s Applied job</a>
+					</div>
+					</div>
+					</li>
+					
+					<li><div class="dropdown">Friends
+					<div class="dropdown-content">
+					<a href="#/FriendRequest">New Friend Request</a>
+					<a href="#/viewFriend">view Friend List</a>
+					<a href="#/friend">friend</a>
+					<a href="#/ViewUsers" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'">Search Friend</a>
+					</div>
+					</div>
+					</li>
+					
+					<li><div class="dropdown">{{currentUser.userName}}'s Info
+					<div class="dropdown-content">
+					<a href="#/ImageUpload" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'" >Images</a>
+					<a href="#" ng-click="m.getSelectedUser(currentUser.userId)" ng-show="currentUser.userRole == 'USER' || currentUser.userRole == 'ADMIN'" >{{currentUser.userName}}'s details</a>
+					</div>
+					</div>
+					</li>
+					
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="images/slide01.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>A free responsive web site template by Arijit</p>
+							<h2>PANABEE</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide02.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>EXPERIENCE A NEW WAY OF INTERACTING WITH PEOPLE AROUND YOU .. </p>
+							<h2>FUTURE</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide03.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>EXPLORE FEATURES TO EXPLORE YOUR PANABEE MOMENTS</p>
+							<h2>MOMENTS</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide04.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							 <p>Take a look at some of offers or discuss how we can help you.</p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide05.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
+							<h2>Surf And Enjoy</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+				<header class="align-center">
+					<main><ng-view></ng-view></main>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
+						<h2>Morbi maximus justo</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+						<p class="special">Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
+						<h2>Morbi maximus justo</h2>
+					</header>
+					<div class="gallery">
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="images/pic01.jpg" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="images/pic02.jpg" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="images/pic03.jpg" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="#"><img src="images/pic04.jpg" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. All rights reserved.
+				</div>
+			</footer>
+</div>
+</div>
+		<!-- Scripts -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+   
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
+ 
+
+<script src="My-Js/myApp.js"></script>
+   
+   
+<script src="My-Js/UserController.js"></script>
+<script src="services/UserService.js"></script>
+
+
+<script src="My-Js/BlogController.js"></script>
+<script src="services/BlogService.js"></script>
+
+
+<script src="My-Js/ForumController.js"></script>
+<script src="services/ForumService.js"></script>
+
+
+<script src="services/ImageService.js"></script>
+<script src="My-Js/ImageController.js"></script>
+
+
+<script src="My-Js/JobController.js"></script>
+<script src="services/JobService.js"></script>
+
+////////////
+
+<script src="My-Js/sockjs.js"></script>
+<script src="My-Js/sockjs-0.3.4.js"></script>
+<script src="My-Js/stomp.js"></script>
+<script src="My-Js/ChatController.js"></script>
+<script src="services/ChatService.js"></script>
+//////////////
+<script src="My-Js/FriendController.js"></script>
+<script src="services/FriendService.js"></script>
+
+
+
+			
+			
+			
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

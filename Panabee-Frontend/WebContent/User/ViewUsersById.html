@@ -1,0 +1,105 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+caption{
+color: black;
+position: center
+
+}
+table,td {
+  border: 1px solid turquoise;
+  background-color: turquoise;
+  position: center;
+  padding: 4px;
+  color: white;
+  width: 100%
+}
+th, td {
+  padding: 25px;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+  background-color:grey;
+  color:white;
+}
+.avatar {
+  vertical-align: middle;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+</style>
+
+<h4 text-color="white" color="white">User Profile Image</h4>
+<div class="imgcontainer">
+
+      <img src="{{user.userImage}}" alt="Avatar" class="avatar">
+    </div>
+
+<div>
+<table align="center">
+<caption>Personal And Account Information for {{user.userName}}</caption>
+<tr>
+<td colspan="3" align="center">               </td>
+</tr>
+<tr>
+<td colspan="3" align="center"> Personal Information </td>
+</tr>
+<tr>
+<td align="left">Name-</td><td align="right">{{user.userName}}</td>
+</tr>
+<tr>
+<td align="left">Email-</td><td align="right">{{user.userEmail}}</td>
+</tr>
+<tr>
+<td align="left">Description-</td><td align="right">{{user.userDescription}}</td>
+</tr>
+<tr>
+<td align="left">Gender-</td><td align="right">{{user.userGender}}</td>
+</tr>
+<tr>
+<td align="left">DOB-</td><td align="right">{{user.userDob}}</td>
+</tr>
+<tr>
+<td align="left">Address-</td><td align="right">{{user.userAddress}}</td>
+</tr>
+<tr>
+<td align="left">Contact No-</td><td align="right">{{user.userContactNumber}}</td>
+</tr>
+<tr>
+<td align="left">Description-</td><td align="right">{{user.userDescription}}</td>
+</tr>
+<tr>
+<td colspan="3" align="center">               </td>
+</tr>
+<tr>
+<td colspan="3" align="center"> Account Information </td>
+</tr>
+<tr>
+<td align="left">User Identification -<td><td align="right">{{user.userId}}</td>
+</tr>
+<tr>
+<td align="left">Account Status-<td><td align="right">{{user.userStatus}}</td>
+</tr>
+<tr>
+<td align="left">User Status-<td><td align="right">{{user.userIsOnline}}</td>
+</tr>
+<tr>
+<td colspan="3" align="center"><a href="#/EditUsers"><button>Edit {{user.userName}}'s details</button></a></td>
+</tr>
+<tr>
+<td colspan="3" align="center" border="no"><button ng-click="m.activateUser(user,user.userId)">De-Activate {{user.userName}}'s Account</button></td>
+</tr>
+<tr>
+<td colspan="3" align="center" border="no"><button ng-click="m.activateUser(user,user.userId)">Activate {{user.userName}}'s Account</button></td>
+</tr>
+<tr>
+<td colspan="3" align="center" border="no"><button   ng-click="m.sendFriendRequest(user.userId)">send req</button></td>
+</tr>
+</tr>
+</table>
+</div>

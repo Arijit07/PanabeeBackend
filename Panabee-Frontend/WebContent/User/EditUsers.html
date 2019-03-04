@@ -1,0 +1,138 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: grey;
+  color:black;
+  position: center;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+select{
+width: 50%;
+display: inline-block;
+}
+
+textarea{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+
+
+
+.Registe {
+position: center;
+  text-align: center;
+}
+</style>
+
+
+
+<form>
+  <div class="container">
+    <h1 align="center">Edit  {{user.name}}'s Details</h1>
+    <p align="center">Please fill in this form to edit  {{user.name}}'s details and account.</p>
+    <hr>
+    
+	
+	
+	
+	<div>
+    <label for="name"><b></b></label>
+    <input type="text" placeholder="currentUser.userName" ng-model="currentUser.userName" required>
+     </div>
+	 
+	<div>
+    <label for="psw"><b></b></label>
+    <input type="password" placeholder="currentUser.userPassword" ng-model="currentUser.userPassword" required>
+	</div>
+    <div>
+    <br><label for="dob"><b>DOB</b></label>
+    <input type="date" placeholder="currentUser.userDob" ng-model="currentUser.userDob"  required>
+    &nbsp;&nbsp;
+    <label for="gender"><b>Gender</b></label>
+    <select ng-model="currentUser.userGender"  required>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+     </select>
+	 &nbsp;&nbsp;
+	 <label for="contactNo"><b>Contact No</b></label>
+    <input type="tel" placeholder="currentUser.userContactNumber" ng-model="currentUser.userContactNumber" required>
+    </div>
+	
+	<div>
+    <br><br><label for="email"><b></b></label>
+    <input type="text" placeholder="currentUser.userEmail" ng-model="currentUser.userEmail" required>
+    </div>
+	 <div>
+     <label for="description"><b></b></label>
+    <textarea placeholder="currentUser.userDescription" ng-model="currentUser.userDescription" required ></textarea>
+    </div>
+	 <div>
+     <br><label for="address"><b></b></label>
+    <textarea placeholder="currentUser.userAddress" ng-model="currentUser.userAddress" id="address" required ></textarea>
+    </div>
+	
+    
+    
+    
+    
+    
+    <hr>
+	<div class="Registe">
+   <button ng-click="m.updateUser(currentUser,currentUser.userId)" class="registerbtn">Save Details</button>
+   </div>
+  </div>
+  
+  
+</form>
+

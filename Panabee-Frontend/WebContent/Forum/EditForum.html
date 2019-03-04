@@ -1,0 +1,108 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: grey;
+  color:white;
+  position: center;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+textarea{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+
+
+
+.Registe {
+position: center;
+  text-align: center;
+}
+</style>
+
+
+
+<form>
+  <div class="container">
+    <h1 align="center">Edit  Blog Title Named {{blog.blogTitle}} Details</h1>
+    <p align="center">Please fill in this form to edit blog title named {{blog.blogTitle}} details.</p>
+    <hr>
+    
+	<form hidden ng-model="forum.forumId" >
+	
+	<div>
+    <label for="name"><b></b></label>
+    <textarea  placeholder="forum.forumName" ng-model="forum.forumName" required></textarea >
+     </div>
+	 
+	<div>
+    <label for="psw"><b></b></label>
+    <input type="text" placeholder="forum.forumDescription" ng-model="forum.forumDescription" required>
+	</div>
+    
+	
+	
+	
+    
+    
+    
+    
+    
+    <hr>
+	<div class="Registe">
+   <button ng-click="m.updateForumComment(forum,forum.forumId)" class="registerbtn">Save Forum</button>
+   </div>
+  </div>
+  
+  
+</form>
